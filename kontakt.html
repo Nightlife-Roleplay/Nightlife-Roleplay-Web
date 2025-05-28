@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Kontakt – @liam_dc.dev2</title>
+    <link href="https://fonts.googleapis.com/css?family=Montserrat:400,700&display=swap" rel="stylesheet">
+    <style>
+        body {
+            background: linear-gradient(135deg, #6a11cb 0%, #2575fc 100%);
+            font-family: 'Montserrat', sans-serif;
+            color: #fff;
+            margin: 0;
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+        .kontakt-container {
+            background: rgba(80, 34, 129, 0.95);
+            border-radius: 18px;
+            box-shadow: 0 8px 32px 0 rgba(106, 17, 203, 0.37);
+            padding: 40px 32px;
+            max-width: 400px;
+            width: 100%;
+            text-align: center;
+            backdrop-filter: blur(4px);
+        }
+        .kontakt-container h1 {
+            font-size: 2.2rem;
+            margin-bottom: 10px;
+            letter-spacing: 1px;
+            font-weight: 700;
+        }
+        .kontakt-container p {
+            font-size: 1.1rem;
+            margin-bottom: 24px;
+            color: #e0c3fc;
+        }
+        .kontakt-info {
+            background: #4e2a84;
+            border-radius: 10px;
+            padding: 18px 0;
+            margin-bottom: 16px;
+            font-size: 1.05rem;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 10px;
+        }
+        .kontakt-info svg {
+            width: 22px;
+            height: 22px;
+            fill: #b983ff;
+        }
+        .kontakt-info a {
+            color: #b983ff;
+            text-decoration: none;
+            font-weight: 600;
+            transition: color 0.2s;
+        }
+        .kontakt-info a:hover {
+            color: #e0c3fc;
+        }
+        @media (max-width: 500px) {
+            .kontakt-container {
+                padding: 24px 8px;
+            }
+            .kontakt-container h1 {
+                font-size: 1.5rem;
+            }
+        }
+        a[href="index.html"] {
+            color: #b983ff;
+            text-decoration: none;
+            font-weight: 600;
+            transition: color 0.2s;
+        }
+        a[href="index.html"]:hover {
+            color: #e0c3fc;
+        }
+    </style>
+</head>
+<body>
+    <div class="kontakt-container">
+        <h1>Kontakt</h1>
+        <p>Du möchtest mit <b>@liam_dc.dev2</b> in Kontakt treten? Schreib gerne eine E-Mail!</p>
+        <div class="kontakt-info">
+            <svg viewBox="0 0 24 24"><path d="M20 4H4c-1.1 0-2 .9-2 2v12c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 2v.01L12 13 4 6.01V6h16zm0 12H4V8.99l8 6.99 8-6.99V18z"/></svg>
+            <a href="mailto:liamdcdev@gmail.com">liamdcdev@gmail.com</a>
+        </div>
+        <a href="index.html">Zurück zur Startseite</a>
+    </div>
+</body>
+</html>
