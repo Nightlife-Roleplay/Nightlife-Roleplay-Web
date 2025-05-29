@@ -1,0 +1,221 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Make a Web - Request</title>
+    <link href="https://fonts.googleapis.com/css?family=Montserrat:700,400&display=swap" rel="stylesheet">
+    <style>
+        body {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            font-family: 'Montserrat', sans-serif;
+            min-height: 100vh;
+            margin: 0;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+        .container {
+            background: #fff;
+            border-radius: 18px;
+            box-shadow: 0 8px 32px rgba(44, 62, 80, 0.2);
+            padding: 40px 32px 32px 32px;
+            max-width: 400px;
+            width: 100%;
+        }
+        h1 {
+            text-align: center;
+            color: #5f27cd;
+            margin-bottom: 24px;
+            font-size: 2.2em;
+            letter-spacing: 1px;
+        }
+        label {
+            font-weight: 600;
+            color: #222f3e;
+            margin-bottom: 6px;
+            display: block;
+        }
+        input, textarea {
+            width: 100%;
+            padding: 10px 12px;
+            margin-bottom: 18px;
+            border: 1.5px solid #c8d6e5;
+            border-radius: 8px;
+            font-size: 1em;
+            background: #f5f6fa;
+            transition: border 0.2s;
+        }
+        input:focus, textarea:focus {
+            border-color: #5f27cd;
+            outline: none;
+        }
+        textarea {
+            min-height: 70px;
+            resize: vertical;
+        }
+        .discord-join {
+            display: flex;
+            align-items: center;
+            margin-bottom: 18px;
+        }
+        .discord-join a {
+            color: #7289da;
+            font-weight: 600;
+            text-decoration: none;
+            margin-left: 8px;
+            transition: color 0.2s;
+        }
+        .discord-join a:hover {
+            color: #5f27cd;
+        }
+        .checkbox-label {
+            display: flex;
+            align-items: center;
+            font-size: 0.98em;
+            margin-bottom: 18px;
+        }
+        .checkbox-label input[type="checkbox"] {
+            margin-right: 8px;
+        }
+        button {
+            width: 100%;
+            background: linear-gradient(90deg, #5f27cd 0%, #48dbfb 100%);
+            color: #fff;
+            border: none;
+            border-radius: 8px;
+            padding: 12px 0;
+            font-size: 1.1em;
+            font-weight: 700;
+            cursor: pointer;
+            transition: background 0.2s;
+        }
+        button:disabled {
+            background: #c8d6e5;
+            color: #8395a7;
+            cursor: not-allowed;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Make a Web</h1>
+        <form id="requestForm">
+            <label for="discordName">Your Discord Name</label>
+            <input type="text" id="discordName" name="discordName" placeholder="e.g. User#1234" required>
+
+            <label for="realName">Your Real Name</label>
+            <input type="text" id="realName" name="realName" placeholder="e.g. John Doe" required>
+
+            <label for="websiteLook">How should your website look?</label>
+            <textarea id="websiteLook" name="websiteLook" placeholder="Describe your website's style, colors, features..." required></textarea>
+
+            <div class="discord-join">
+                <span>Join our Discord server first:</span>
+                <a href="https://discord.gg/jBKrWTMETp" target="_blank">Join Discord</a>
+            </div>
+            <p>You have to Join the Discord To get your Web. You have to Paste the TicketID in youre Discord Ticket</p>
+            <label class="checkbox-label">
+                <input type="checkbox" id="joinedDiscord" required>
+                I have joined the Discord server
+            </label>
+
+            <button type="submit" id="submitBtn" disabled>Send Request</button>
+        </form>
+    </div>
+    <script>
+        const checkbox = document.getElementById('joinedDiscord');
+        const submitBtn = document.getElementById('submitBtn');
+        checkbox.addEventListener('change', function() {
+            submitBtn.disabled = !this.checked;
+        });
+
+        document.getElementById('requestForm').addEventListener('submit', async function(e) {
+            e.preventDefault();
+
+            const discordName = document.getElementById('discordName').value;
+            const realName = document.getElementById('realName').value;
+            const websiteLook = document.getElementById('websiteLook').value;
+
+            const webhookUrl = "https://discord.com/api/webhooks/YOUR_WEBHOOK_URL";
+
+            const payload = {
+                content: `**New Website Request**\n**Discord Name:**${discordName}\n**Real Name:** ${realName}\n**Website Look:**\n${websiteLook}\n@everyone`
+            };
+
+            try {
+                await fetch(webhookUrl, {
+                    method: "POST",
+                    headers: {
+                        "Content-Type": "application/json"
+                    },
+                    body: JSON.stringify(payload)
+                });
+                alert('Request sent to The Development! Thank you.');
+                this.reset();
+                submitBtn.disabled = true;
+            } catch (err) {
+                alert('Failed to send request.');
+            }
+        });
+    </script>
+</body>
+</html>
+<script>
+function generateTicketId(length = 8) {
+    const chars = 'ABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789!"§$%&/()=?';
+    let id = '';
+    for (let i = 0; i < length; i++) {
+        id += chars.charAt(Math.floor(Math.random() * chars.length));
+    }
+    return id;
+}
+
+document.getElementById('requestForm').addEventListener('submit', async function(e) {
+    e.preventDefault();
+
+    const discordName = document.getElementById('discordName').value;
+    const realName = document.getElementById('realName').value;
+    const websiteLook = document.getElementById('websiteLook').value;
+    const ticketId = generateTicketId();
+
+    const webhookUrl = "https://discord.com/api/webhooks/1377363540771471601/rPZkMQjLSYzFuq1i8NSaxHt4WnSOu6m_vViwg0s9hcwyCjnW1wPCgoMpaB7jKG6TCzqJ";
+
+    const payload = {
+        content: `# New Website Request \n**Ticket ID:** ${ticketId}\n**Discord Name:** ${discordName}\n**Real Name:** ${realName}\n**Website Look:**\n${websiteLook}\n<@&1377402883804233868>`
+    };
+
+    try {
+        await fetch(webhookUrl, {
+            method: "POST",
+            headers: {
+                "Content-Type": "application/json"
+            },
+            body: JSON.stringify(payload)
+        });
+
+        // Show ticket ID with copy button
+        const msg = document.createElement('div');
+        msg.innerHTML = `
+            <strong>Request sent!</strong><br>
+            Your Ticket-ID: <input type="text" value="${ticketId}" id="ticketIdInput" readonly style="width:120px;">
+            <button id="copyTicketId">Kopieren</button>
+        `;
+        msg.style = "margin-top:18px;text-align:center;color:#222f3e;font-size:1.1em;";
+        document.querySelector('.container').appendChild(msg);
+
+        document.getElementById('ticketIdInput').select();
+        document.getElementById('copyTicketId').onclick = function() {
+            const input = document.getElementById('ticketIdInput');
+            input.select();
+            document.execCommand('copy');
+            this.textContent = 'Kopiert!';
+            setTimeout(() => { this.textContent = 'Kopieren'; }, 1500);
+        };
+
+        this.reset();
+        document.getElementById('submitBtn').disabled = true;
+    } catch (err) {
+        alert('Failed to send request.');
+    }
+});
+</script>

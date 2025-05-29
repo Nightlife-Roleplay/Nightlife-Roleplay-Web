@@ -2,136 +2,91 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Nightlife Roleplay V2</title>
-    <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@700&family=Montserrat:wght@400;700&display=swap" rel="stylesheet">
+    <meta name="viewport" content="width=device-width,initial-scale=1.0">
+    <title>MaW</title>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@700&display=swap" rel="stylesheet">
     <style>
         body {
-            background: linear-gradient(135deg, #a259ff 0%, #ff4fcb 100%);
-            min-height: 100vh;
             margin: 0;
+            padding: 0;
+            background: linear-gradient(135deg, #1e3c72 0%, #2a5298 100%);
             font-family: 'Montserrat', Arial, sans-serif;
-        }
-        .logo-1 {
-            position: absolute;
-            top: 40px;
-            left: 50px;
             color: #fff;
-            font-family: 'Orbitron', Arial, sans-serif;
-            font-size: 3rem;
-            letter-spacing: 2px;
-            text-shadow: 0 4px 24px #a259ff, 0 1px 0 #222;
-            z-index: 10;
-            animation: logo-glow 2s infinite alternate;
-        }
-        @keyframes logo-glow {
-            from { text-shadow: 0 4px 24px #a259ff, 0 1px 0 #222; }
-            to { text-shadow: 0 4px 48px #ff4fcb, 0 1px 0 #222; }
-        }
-        .logo-2 {
-            color: #ff4fcb;
-            font-size: 1.5rem;
-            margin-left: 10px;
-            font-family: 'Orbitron', Arial, sans-serif;
-            text-shadow: 0 2px 8px #ff4fcb;
-        }
-        .tab-leiste {
-            position: absolute;
-            top: 30px;
-            right: 50px;
+            min-height: 100vh;
             display: flex;
-            gap: 30px;
-            background: rgba(162,89,255,0.6);
-            padding: 14px 32px;
-            border-radius: 16px;
-            box-shadow: 0 4px 24px rgba(255,79,203,0.2);
-            backdrop-filter: blur(6px);
-            z-index: 20;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
         }
-        .tab-leiste a {
-            color: #fff;
-            text-decoration: none;
+        .logo {
+            display: flex;
+            align-items: center;
+            gap: 16px;
+            margin-bottom: 32px;
+        }
+        .logo-icon {
+            width: 60px;
+            height: 60px;
+            background: #fff;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 2.5rem;
+            color: #2a5298;
             font-weight: bold;
-            font-size: 1.1rem;
-            letter-spacing: 1px;
-            transition: color 0.2s, text-shadow 0.2s;
-            padding: 6px 12px;
-            border-radius: 6px;
+            box-shadow: 0 4px 24px rgba(30,60,114,0.2);
         }
-        .tab-leiste a:hover {
-            color: #ff4fcb;
-            text-shadow: 0 2px 12px #a259ff;
-            background: rgba(255,79,203,0.08);
+        .logo-text {
+            font-size: 2.5rem;
+            font-weight: 700;
+            letter-spacing: 2px;
+            text-shadow: 0 2px 8px rgba(30,60,114,0.2);
         }
-        h2 {
+        .headline {
+            font-size: 1.5rem;
+            margin-bottom: 24px;
+            text-align: center;
+            max-width: 500px;
+        }
+        .request-btn {
+            padding: 16px 40px;
+            font-size: 1.2rem;
+            font-weight: 700;
             color: #fff;
+            background: linear-gradient(90deg, #ff512f 0%, #dd2476 100%);
+            border: none;
+            border-radius: 32px;
+            box-shadow: 0 4px 16px rgba(221,36,118,0.2);
+            cursor: pointer;
+            transition: background 0.3s, transform 0.2s;
+        }
+        .request-btn:hover {
+            background: linear-gradient(90deg, #dd2476 0%, #ff512f 100%);
+            transform: translateY(-2px) scale(1.04);
+        }
+        .success-message {
+            margin-top: 32px;
+            font-size: 1.2rem;
+            color: #b2ff59;
+            display: none;
             text-align: center;
-            margin-top: 180px;
-            font-size: 2.2rem;
-            font-family: 'Orbitron', Arial, sans-serif;
-            letter-spacing: 1px;
-            text-shadow: 0 2px 16px #a259ff;
-        }
-        p {
-            color: #ffe0fa;
-            text-align: center;
-            font-size: 1.1rem;
-            margin-bottom: 40px;
-        }
-        .credit-box {
-            width: fit-content;
-            margin: 40px auto 0 auto;
-            background: linear-gradient(90deg, #a259ff 0%, #ff4fcb 100%);
-            color: #222;
-            padding: 14px 32px;
-            border-radius: 12px;
-            box-shadow: 0 4px 24px rgba(255,79,203,0.2);
-            font-weight: bold;
-            font-size: 1.1rem;
-            letter-spacing: 1px;
-            border: 2px solid #ff4fcb;
-            transition: box-shadow 0.2s;
-        }
-        .credit-box:hover {
-            box-shadow: 0 8px 32px #ff4fcb88;
-        }
-        footer {
-            position: fixed;
-            bottom: 0;
-            width: 100%;
-            text-align: center;
-            color: #fff;
-            background: rgba(162,89,255,0.5);
-            padding: 14px 0;
-            font-size: 1rem;
-            letter-spacing: 1px;
-            box-shadow: 0 -2px 16px #ff4fcb33;
-            backdrop-filter: blur(2px);
-        }
-        @media (max-width: 700px) {
-            .logo-1 { font-size: 2rem; left: 20px; top: 20px; }
-            .tab-leiste { right: 10px; top: 10px; gap: 10px; padding: 8px 10px; }
-            h2 { margin-top: 120px; font-size: 1.3rem; }
-            .credit-box { padding: 8px 12px; font-size: 0.95rem; }
         }
     </style>
 </head>
 <body>
-    <div class="tab-leiste">
-        <a href="index.html">Home</a>
-        <a href="https://discord.gg/dxZUxJsHCA">Discord</a>
-        <a href="kontakt.html">Kontakt</a>
+    <div class="logo">
+        <div class="logo-icon">MaW</div>
+        <div class="logo-text"></div>    </div>
+    <div class="headline">
+        Welcome to <strong>MaW</strong>!<br>
+        Need your own website? Click the button below to request one.
     </div>
-    <h1 class="logo-1" style="text-shadow: 0 4px 24px #a259ff, 0 1px 0 #222;">NLRP <span class="logo-2" style="color:#ff4fcb;text-shadow:0 2px 8px #ff4fcb;">V2</span></h1>
-    <h2>Welcome to Nightlife Roleplay V2 Web</h2>
-    <p>Diese Website wurde vollkommen selber programmiert.</p>
-
-    <div class="credit-box">
-        Made by @liam_dc.dev2
-    </div>
-
-    <footer>
-        &copy; Nightlife Roleplay. All Rights Reserved.
-    </footer>
+    <a class="request-btn" href="req.html">Request</a>
+    <script>
+        function requestWebsite() {
+            document.getElementById('successMsg').style.display = 'block';
+        }
+    </script>
 </body>
 </html>
