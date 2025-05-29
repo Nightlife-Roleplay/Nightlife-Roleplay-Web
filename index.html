@@ -9,7 +9,7 @@
         body {
             margin: 0;
             padding: 0;
-            background: linear-gradient(135deg, #1e3c72 0%, #2a5298 100%);
+            background: linear-gradient(135deg, #0d2551 50%, #2a5298 100%);
             font-family: 'Montserrat', Arial, sans-serif;
             color: #fff;
             min-height: 100vh;
@@ -24,11 +24,22 @@
             gap: 16px;
             margin-bottom: 32px;
         }
+        .kontakt-container {
+            position: absolute;
+            top: 20px;
+            right: 20px;
+            background: rgba(255, 2, 2, 0.1);
+            padding: 10px 20px;
+            border-radius: 8px;
+            color: #fff;
+            text-decoration: none;
+            font-size: 1rem;
+        }
         .logo-icon {
-            width: 60px;
-            height: 60px;
+            width: 65px;
+            height: 70px;
             background: #fff;
-            border-radius: 50%;
+            border-radius: 60%;
             display: flex;
             align-items: center;
             justify-content: center;
@@ -72,6 +83,24 @@
             display: none;
             text-align: center;
         }
+                .footer-1 {
+            position: absolute;
+            bottom: 30px;
+            font-size: 0.9rem;
+            color: #fff;
+            text-align: center;
+            width: 100%;
+        }
+        .footer-2 {
+            position: absolute;
+            bottom: 0;
+            width: 100%;
+            background: rgba(0, 0, 0, 0.5);
+            color: #fff;
+            text-align: center;
+            padding: 8px 0;
+            font-size: 0.8rem;
+        }
     </style>
 </head>
 <body>
@@ -80,13 +109,13 @@
         <div class="logo-text"></div>    </div>
     <div class="headline">
         Welcome to <strong>MaW</strong>!<br>
-        Need your own website? Click the button below to request one.
+        Need your own website? Click the button below to request one. Every website is selfmade programmed.
     </div>
     <a class="request-btn" href="req.html">Request</a>
-    <script>
-        function requestWebsite() {
-            document.getElementById('successMsg').style.display = 'block';
-        }
-    </script>
+    <div id="successMsg" class="success-message">Your request has been submitted!</div>
+    <p>Doesn´t Working? Right Click & Open in New Tab.</p>
+    <footer class="footer-1">Hosted by Liam Studios</footer>
+    <footer class="footer-2">&copy; Make a Web. All Rights Reserved</footer>
+    <footer><a class="kontakt-container" href="kontakt.html">Kontakt</a> </footer>
 </body>
 </html>
