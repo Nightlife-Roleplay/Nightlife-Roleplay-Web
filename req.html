@@ -75,7 +75,10 @@
             margin-bottom: 18px;
         }
         .checkbox-label input[type="checkbox"] {
-            margin-right: 8px;
+            margin-left: -5px;
+            margin-right: 20px;
+            width: 18px;
+            height: 18px;
         }
         button {
             width: 100%;
@@ -99,6 +102,10 @@
 <body>
     <div class="container">
         <h1>Make a Web</h1>
+        <p>To request a website, please fill out the form below. Make sure to join our Discord server first!</p>
+        <p>After submitting, you will receive a Ticket-ID. Please copy it and paste it into your Discord ticket.</p>
+        <p>We will review your request and get back to you as soon as possible.</p>
+        <p>Note: You must join our Discord server to submit a request.</p>
         <form id="requestForm">
             <label for="discordName">Your Discord Name</label>
             <input type="text" id="discordName" name="discordName" placeholder="e.g. User#1234" required>
@@ -120,6 +127,8 @@
             </label>
 
             <button type="submit" id="submitBtn" disabled>Send Request</button>
+            <p style="text-align: center; font-size: 0.9em; color: #8395a7;">By submitting, you agree to Github <a href="https://docs.github.com/en/site-policy/github-terms/github-terms-of-service" style="color: #5f27cd;">Terms of Services</a>.</p>
+                        <button type="button" onclick="window.location.href='index.html'" style="margin-bottom:10px; height: -10px;">Homepage</button>
         </form>
     </div>
     <script>
@@ -208,8 +217,8 @@ document.getElementById('requestForm').addEventListener('submit', async function
             const input = document.getElementById('ticketIdInput');
             input.select();
             document.execCommand('copy');
-            this.textContent = 'Kopiert!';
-            setTimeout(() => { this.textContent = 'Kopieren'; }, 1500);
+            this.textContent = 'Copyt!';
+            setTimeout(() => { this.textContent = 'Copy'; }, 1500);
         };
 
         this.reset();
